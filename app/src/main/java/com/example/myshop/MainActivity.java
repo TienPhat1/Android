@@ -18,19 +18,28 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button button;
+    private Button login_btn, register_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.btn);
+        login_btn = (Button) findViewById(R.id.main_login_btn);
+        register_btn = (Button) findViewById(R.id.main_join_now_btn);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
