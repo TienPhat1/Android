@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminAddCategory">
+
+    <TextView
+        android:id="@+id/t_add_new_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add New Product"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+    <LinearLayout
+        android:id="@+id/t_linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_add_new_product"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="70dp">
+
+        <ImageView
+            android:id="@+id/p_coffee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/coffee"
+            android:adjustViewBounds="true"
+            android:maxHeight="70dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:id="@+id/p_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/food"
+            android:adjustViewBounds="true"
+            android:maxHeight="70dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="50dp"/>
+        <ImageView
+            android:id="@+id/p_woman_shose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/womanshoes"
+            android:adjustViewBounds="true"
+            android:maxHeight="70dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="50dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/t_linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_linear1"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="90dp">
+        <ImageView
+            android:id="@+id/p_woman_clother"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/womonclother"
+            android:adjustViewBounds="true"
+            android:maxHeight="70dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="30dp"/>
+        <ImageView
+            android:id="@+id/p_men"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/men"
+            android:adjustViewBounds="true"
+            android:maxHeight="70dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="50dp"/>
+        <ImageView
+            android:id="@+id/p_sport_shose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sportshose"
+            android:adjustViewBounds="true"
+            android:maxHeight="70dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="50dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

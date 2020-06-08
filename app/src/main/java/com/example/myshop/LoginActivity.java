@@ -10,8 +10,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myshop.Model.Admin;
 import com.example.myshop.Model.Users;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText phoneNumb,passWrd;
     private Button loginButton;
     private ProgressDialog loadingBar;
+    private TextView admin_link;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.login_btn);
         phoneNumb = (EditText) findViewById(R.id.login_phone_number);
         passWrd = (EditText) findViewById(R.id.login_password);
+        admin_link  = (TextView) findViewById(R.id.admin_link_panel);
         loadingBar = new ProgressDialog(this);
 
         loginButton.setOnClickListener(new View.OnClickListener()
@@ -42,6 +46,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 loginUser();
+            }
+        });
+
+        admin_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                loginButton.setText("Admin Login");
+                admin_link.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -97,6 +110,26 @@ public class LoginActivity extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(LoginActivity.this,"Account with this "+ phone +" number do not exist",Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
+
+                }
+                if(dataSnapshot.child("Admin").child(phone).exists())
+                {
+                    Admin adminData = dataSnapshot.child("Admin").child(phone).getValue(Admin.class);
+                    if(adminData.getPhone().equals(phone))
+                    {
+                        if(adminData.getPassword().equals(password))
+                        {
+                            Toast.makeText(LoginActivity.this, "Welcome admin... ",Toast.LENGTH_SHORT).show();
+                            loadingBar.dismiss();
+                            Intent intent = new Intent(LoginActivity.this,AdminAddCategoryActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                }
+                else
+                {
+                    Toast.makeText(LoginActivity.this,"Admin with this "+ phone +" number do not exist",Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
 
                 }
